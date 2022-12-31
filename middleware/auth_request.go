@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/cledupe/jwt-auth/initializers"
+	"github.com/cledupe/jwt-auth/infrastructure"
 	"github.com/cledupe/jwt-auth/models"
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v4"
@@ -41,7 +41,7 @@ func TokenAuthMiddleware(c *gin.Context) {
 		}
 
 		var user models.User
-		initializers.DB.Db.First(&user, claims["user"])
+		infrastructure.DB.Db.First(&user, claims["user"])
 
 		if user.ID == 0 {
 			log.Println("user not found")
