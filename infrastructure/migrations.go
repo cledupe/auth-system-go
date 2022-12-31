@@ -1,4 +1,4 @@
-package initializers
+package infrastructure
 
 import "github.com/cledupe/jwt-auth/models"
 
